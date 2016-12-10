@@ -29,8 +29,8 @@ defmodule EredisBench do
     system_runtime = stats |> Enum.map(fn {_, t} -> t end)
 
     IO.puts "probes: #{n}"
-    IO.puts "system_realtime: mean #{Statistics.mean(system_realtime)}, median: #{Statistics.median(system_realtime)}"
-    IO.puts "system_runtime: mean #{Statistics.mean(system_runtime)}, median: #{Statistics.median(system_runtime)}"
+    IO.puts "system_realtime: mean #{Statistics.mean(system_realtime)} us, median: #{Statistics.median(system_realtime)} us"
+    IO.puts "system_runtime: mean #{Statistics.mean(system_runtime)} us, median: #{Statistics.median(system_runtime)} us"
   end
 
   def benchmark_parse_bulk(opts) do
