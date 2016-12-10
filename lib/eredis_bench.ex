@@ -34,7 +34,7 @@ defmodule EredisBench do
   end
 
   def benchmark_parse_bulk(opts) do
-    data = bulk_data(4096, 256 * opts[:bulk_size_mb])
+    data = bulk_data(opts[:chunk_size_kb] * 1024, round(opts[:bulk_size_mb] * 1024 / opts[:chunk_size_kb]))
     make_probes(opts[:probe_count], fn ->
       parse_bulk_data(data)
     end)

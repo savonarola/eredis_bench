@@ -16,8 +16,8 @@ defmodule EredisBench.Mixfile do
 
   defp deps do
     [
-      # {:eredis, git: "https://github.com/wooga/eredis.git"},
-      {:eredis, git: "https://github.com/savonarola/eredis.git", branch: "optimize_binary_operations"},
+      {:eredis, git: "https://github.com/wooga/eredis.git"},
+      # {:eredis, git: "https://github.com/savonarola/eredis.git", branch: "optimize_binary_operations"},
       {:statistics, "~> 0.4.0"}
     ]
   end

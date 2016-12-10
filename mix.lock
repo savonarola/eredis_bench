@@ -1,2 +1,2 @@
-%{"eredis": {:git, "https://github.com/savonarola/eredis.git", "de84251c05b124463c6212f8a0533fb1b409ddd1", [branch: "optimize_binary_operations"]},
+%{"eredis": {:git, "https://github.com/wooga/eredis.git", "bf12ecb30253c84a2331f4f0d93fd68856fcb9f4", []},
   "statistics": {:hex, :statistics, "0.4.1", "e9bfe6649f70842d9ebce69aa31ac8b6928e096bde43b683d7d673057237d028", [:mix], []}}

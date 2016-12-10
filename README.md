@@ -7,30 +7,40 @@ and an optimized parser https://github.com/savonarola/eredis/blob/optimize_binar
 Original `wooga/eredis` parser:
 
 ```elixir
-iex(1)> EredisBench.benchmark_parse_bulk probe_count: 100, bulk_size_mb: 150
+iex(1)> EredisBench.benchmark_parse_bulk probe_count: 100, bulk_size_mb: 150, chunk_size_kb: 4
 probes: 100
 system_realtime: mean 3759849.28 us, median: 3707978.5 us
 system_runtime: mean 252962.46 us, median: 249221.0 us
 :ok
-iex(2)> EredisBench.benchmark_parse_bulk probe_count: 100, bulk_size_mb: 1  
+iex(2)> EredisBench.benchmark_parse_bulk probe_count: 100, bulk_size_mb: 1, chunk_size_kb: 4  
 probes: 100
 system_realtime: mean 426953.22 us, median: 19214.0 us
 system_runtime: mean 1801.25 us, median: 1525.5 us
+:ok
+iex(3)> EredisBench.benchmark_parse_bulk probe_count: 100, bulk_size_mb: 150, chunk_size_kb: 128
+probes: 100
+system_realtime: mean 4673144.18 us, median: 3975317.5 us
+system_runtime: mean 248001.75 us, median: 235326.0 us
 :ok
 ```
 
 Optimized parser:
 
 ```elixir
-iex(1)> EredisBench.benchmark_parse_bulk probe_count: 100, bulk_size_mb: 150
+iex(1)> EredisBench.benchmark_parse_bulk probe_count: 100, bulk_size_mb: 150, chunk_size_kb: 4
 probes: 100
 system_realtime: mean 713101.37 us, median: 443085.0 us
 system_runtime: mean 50588.51 us, median: 32450.0 us
 :ok
-iex(2)> EredisBench.benchmark_parse_bulk probe_count: 100, bulk_size_mb: 1  
+iex(2)> EredisBench.benchmark_parse_bulk probe_count: 100, bulk_size_mb: 1, chunk_size_kb: 4  
 probes: 100
 system_realtime: mean 765323.56 us, median: 5049.5 us
 system_runtime: mean 1195.32 us, median: 1000.5 us
+:ok
+iex(3)> EredisBench.benchmark_parse_bulk probe_count: 100, bulk_size_mb: 150, chunk_size_kb: 128
+probes: 100
+system_realtime: mean 368834.38 us, median: 282114.0 us
+system_runtime: mean 26209.35 us, median: 20287.5 us
 :ok
 ```
 
